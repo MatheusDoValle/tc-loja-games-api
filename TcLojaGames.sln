@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcLojaGames.Api", "TcLojaGames.Api\TcLojaGames.Api.csproj", "{6448509A-8BC7-415D-8661-E6F0FFEB0CCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcLojaGames.Application", "TcLojaGames.Application\TcLojaGames.Application.csproj", "{6368EDD1-6DBF-45E9-AB25-92738F925096}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcLojaGames.Domain", "TcLojaGames.Domain\TcLojaGames.Domain.csproj", "{9B77F50B-375A-4827-9578-4CFC82612475}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcLojaGames.Infra", "TcLojaGames.Infra\TcLojaGames.Infra.csproj", "{3930A705-EF94-45ED-8725-F3C618B914AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6448509A-8BC7-415D-8661-E6F0FFEB0CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6448509A-8BC7-415D-8661-E6F0FFEB0CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6448509A-8BC7-415D-8661-E6F0FFEB0CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6448509A-8BC7-415D-8661-E6F0FFEB0CCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6368EDD1-6DBF-45E9-AB25-92738F925096}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6368EDD1-6DBF-45E9-AB25-92738F925096}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6368EDD1-6DBF-45E9-AB25-92738F925096}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6368EDD1-6DBF-45E9-AB25-92738F925096}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B77F50B-375A-4827-9578-4CFC82612475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B77F50B-375A-4827-9578-4CFC82612475}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B77F50B-375A-4827-9578-4CFC82612475}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B77F50B-375A-4827-9578-4CFC82612475}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3930A705-EF94-45ED-8725-F3C618B914AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3930A705-EF94-45ED-8725-F3C618B914AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3930A705-EF94-45ED-8725-F3C618B914AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3930A705-EF94-45ED-8725-F3C618B914AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
