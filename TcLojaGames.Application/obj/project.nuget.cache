@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Et1iTUKGvZc=",
+  "success": true,
+  "projectFilePath": "/Users/matheusmachadopinheirodovalle/RiderProjects/tc-loja-games-api/TcLojaGames.Application/TcLojaGames.Application.csproj",
+  "expectedPackageFiles": [
+    "/Users/matheusmachadopinheirodovalle/.nuget/packages/microsoft.netcore.app.ref/8.0.21/microsoft.netcore.app.ref.8.0.21.nupkg.sha512",
+    "/Users/matheusmachadopinheirodovalle/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.21/microsoft.aspnetcore.app.ref.8.0.21.nupkg.sha512"
+  ],
+  "logs": []
+}
