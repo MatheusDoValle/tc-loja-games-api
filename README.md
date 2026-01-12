@@ -8,8 +8,7 @@ Utiliza **Entity Framework Core** para gerenciar os modelos de **Usuários** e *
 ## Requisitos
 - .NET SDK 8
 
-## Como testar
-1) Restaurar e compilar o projeto:
+## Como testar: Restaurando e compilando o projeto:
 
 1.dotnet restore
 dotnet build
