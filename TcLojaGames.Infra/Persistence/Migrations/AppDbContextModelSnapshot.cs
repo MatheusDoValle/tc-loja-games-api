@@ -19,9 +19,8 @@ namespace TcLojaGames.Infra.Persistence.Migrations
 
             modelBuilder.Entity("TcLojaGames.Domain.Entities.Jogo", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                    b.Property<Guid>("Id")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DataCadastro")
                         .HasColumnType("TEXT");
@@ -46,11 +45,11 @@ namespace TcLojaGames.Infra.Persistence.Migrations
 
             modelBuilder.Entity("TcLojaGames.Domain.Entities.Pedido", b =>
                 {
-                    b.Property<int>("JogoId")
-                        .HasColumnType("INTEGER");
+                    b.Property<Guid>("JogoId")
+                        .HasColumnType("TEXT");
 
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("INTEGER");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DataCompra")
                         .HasColumnType("TEXT");
@@ -58,41 +57,48 @@ namespace TcLojaGames.Infra.Persistence.Migrations
                     b.Property<decimal>("Preco")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("JogoId", "UsuarioId", "DataCompra");
+                    b.HasKey("JogoId", "UserId", "DataCompra");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Pedidos", (string)null);
                 });
 
-            modelBuilder.Entity("TcLojaGames.Domain.Entities.Usuario", b =>
+            modelBuilder.Entity("TcLojaGames.Domain.Entities.User", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("Adm")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("Ativo")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("DataCadastro")
+                    b.Property<Guid>("Id")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Descricao")
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Senha")
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Role")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Usuarios", (string)null);
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("TcLojaGames.Domain.Entities.Pedido", b =>
@@ -103,15 +109,15 @@ namespace TcLojaGames.Infra.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TcLojaGames.Domain.Entities.Usuario", "Usuario")
+                    b.HasOne("TcLojaGames.Domain.Entities.User", "User")
                         .WithMany("Pedidos")
-                        .HasForeignKey("UsuarioId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Jogo");
 
-                    b.Navigation("Usuario");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("TcLojaGames.Domain.Entities.Jogo", b =>
@@ -119,7 +125,7 @@ namespace TcLojaGames.Infra.Persistence.Migrations
                     b.Navigation("Pedidos");
                 });
 
-            modelBuilder.Entity("TcLojaGames.Domain.Entities.Usuario", b =>
+            modelBuilder.Entity("TcLojaGames.Domain.Entities.User", b =>
                 {
                     b.Navigation("Pedidos");
                 });

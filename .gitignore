@@ -97,3 +97,15 @@ _pkginfo.txt
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# App settings (local only)
+TcLojaGames.Api/appsettings.Development.json
+
+# SQLite
+TcLojaGames.Api/*.db
+TcLojaGames.Api/*.db-shm
+TcLojaGames.Api/*.db-wal
+
+# Build artifacts
+**/obj/
+**/bin/

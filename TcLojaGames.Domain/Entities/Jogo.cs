@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
-
 namespace TcLojaGames.Domain.Entities;
 
 public class Jogo
 {
-    public int Id { get; set; }
+    public Guid Id { get; private set; } = Guid.NewGuid();
+
     public string Descricao { get; set; } = default!;
     public DateTime DataCadastro { get; set; } = DateTime.UtcNow;
     public string Genero { get; set; } = default!;
