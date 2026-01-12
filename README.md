@@ -10,7 +10,7 @@ Utiliza **Entity Framework Core** para gerenciar os modelos de **Usuários** e *
 
 ## Como testar: Restaurando e compilando o projeto:
 
-1.dotnet restore
+1. dotnet restore
 dotnet build
 
 2. Restaurar a ferramenta do EF:
@@ -22,7 +22,7 @@ dotnet tool run dotnet-ef database update --project TcLojaGames.Infra --startup-
 4. Rodar a API:
 dotnet run --project TcLojaGames.Api
 
-5.Acessar o Swagger
+5. Acessar o Swagger
 
 Sugestão de teste
 Criar um Jogo via POST
