@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/Users/matheusmachadopinheirodovalle/RiderProjects/tc-loja-games-api/TcLojaGames.Infra/TcLojaGames.Infra.csproj": {}
+    "C:\\Users\\pedro\\Documents\\tc-loja-games-api\\TcLojaGames.Infra\\TcLojaGames.Infra.csproj": {}
   },
   "projects": {
-    "/Users/matheusmachadopinheirodovalle/RiderProjects/tc-loja-games-api/TcLojaGames.Infra/TcLojaGames.Infra.csproj": {
+    "C:\\Users\\pedro\\Documents\\tc-loja-games-api\\TcLojaGames.Domain\\TcLojaGames.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/matheusmachadopinheirodovalle/RiderProjects/tc-loja-games-api/TcLojaGames.Infra/TcLojaGames.Infra.csproj",
-        "projectName": "TcLojaGames.Infra",
-        "projectPath": "/Users/matheusmachadopinheirodovalle/RiderProjects/tc-loja-games-api/TcLojaGames.Infra/TcLojaGames.Infra.csproj",
-        "packagesPath": "/Users/matheusmachadopinheirodovalle/.nuget/packages/",
-        "outputPath": "/Users/matheusmachadopinheirodovalle/RiderProjects/tc-loja-games-api/TcLojaGames.Infra/obj/",
+        "projectUniqueName": "C:\\Users\\pedro\\Documents\\tc-loja-games-api\\TcLojaGames.Domain\\TcLojaGames.Domain.csproj",
+        "projectName": "TcLojaGames.Domain",
+        "projectPath": "C:\\Users\\pedro\\Documents\\tc-loja-games-api\\TcLojaGames.Domain\\TcLojaGames.Domain.csproj",
+        "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pedro\\Documents\\tc-loja-games-api\\TcLojaGames.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/matheusmachadopinheirodovalle/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "/Users/matheusmachadopinheirodovalle/NuGet": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,8 +37,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "10.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -55,22 +53,94 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.21, 8.0.21]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.21, 8.0.21]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/matheusmachadopinheirodovalle/.dotnet/sdk/10.0.100-rc.2.25502.107/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\pedro\\Documents\\tc-loja-games-api\\TcLojaGames.Infra\\TcLojaGames.Infra.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\pedro\\Documents\\tc-loja-games-api\\TcLojaGames.Infra\\TcLojaGames.Infra.csproj",
+        "projectName": "TcLojaGames.Infra",
+        "projectPath": "C:\\Users\\pedro\\Documents\\tc-loja-games-api\\TcLojaGames.Infra\\TcLojaGames.Infra.csproj",
+        "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pedro\\Documents\\tc-loja-games-api\\TcLojaGames.Infra\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\pedro\\Documents\\tc-loja-games-api\\TcLojaGames.Domain\\TcLojaGames.Domain.csproj": {
+                "projectPath": "C:\\Users\\pedro\\Documents\\tc-loja-games-api\\TcLojaGames.Domain\\TcLojaGames.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.18, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.18, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.18, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.18, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

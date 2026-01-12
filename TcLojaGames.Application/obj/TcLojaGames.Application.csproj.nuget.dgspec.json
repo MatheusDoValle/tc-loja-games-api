@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/Users/matheusmachadopinheirodovalle/RiderProjects/tc-loja-games-api/TcLojaGames.Application/TcLojaGames.Application.csproj": {}
+    "C:\\Users\\pedro\\Documents\\tc-loja-games-api\\TcLojaGames.Application\\TcLojaGames.Application.csproj": {}
   },
   "projects": {
-    "/Users/matheusmachadopinheirodovalle/RiderProjects/tc-loja-games-api/TcLojaGames.Application/TcLojaGames.Application.csproj": {
+    "C:\\Users\\pedro\\Documents\\tc-loja-games-api\\TcLojaGames.Application\\TcLojaGames.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/matheusmachadopinheirodovalle/RiderProjects/tc-loja-games-api/TcLojaGames.Application/TcLojaGames.Application.csproj",
+        "projectUniqueName": "C:\\Users\\pedro\\Documents\\tc-loja-games-api\\TcLojaGames.Application\\TcLojaGames.Application.csproj",
         "projectName": "TcLojaGames.Application",
-        "projectPath": "/Users/matheusmachadopinheirodovalle/RiderProjects/tc-loja-games-api/TcLojaGames.Application/TcLojaGames.Application.csproj",
-        "packagesPath": "/Users/matheusmachadopinheirodovalle/.nuget/packages/",
-        "outputPath": "/Users/matheusmachadopinheirodovalle/RiderProjects/tc-loja-games-api/TcLojaGames.Application/obj/",
+        "projectPath": "C:\\Users\\pedro\\Documents\\tc-loja-games-api\\TcLojaGames.Application\\TcLojaGames.Application.csproj",
+        "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pedro\\Documents\\tc-loja-games-api\\TcLojaGames.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/matheusmachadopinheirodovalle/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "/Users/matheusmachadopinheirodovalle/NuGet": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,8 +37,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "10.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -55,22 +53,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.21, 8.0.21]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.21, 8.0.21]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/matheusmachadopinheirodovalle/.dotnet/sdk/10.0.100-rc.2.25502.107/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
