@@ -27,3 +27,33 @@ dotnet run --project TcLojaGames.Api
 Sugestão de teste
 Criar um Jogo via POST
 Listar Jogos via GET
+
+
+
+## Qualidade de Software (Testes Unitários + TDD)
+
+Este projeto possui um projeto de testes unitários (**TcLojaGames.Tests**) para validar regras de negócio do módulo de autenticação.
+
+### O que foi testado (regras de negócio)
+
+**AuthValidation**
+- A senha deve conter **letras, números e caractere especial** (senhas fracas devem falhar).
+
+**AuthService**
+- Não permite cadastro com **e-mail já existente**.
+- Normaliza o e-mail (`trim` + `lowercase`) antes de consultar/salvar.
+- Armazena a senha como **hash BCrypt** (não salva senha em texto puro).
+- Login falha para:
+  - usuário inexistente
+  - senha incorreta
+- Login retorna um **AuthResponse** (token + expiração) quando credenciais são válidas.
+
+### TDD aplicado
+Foi aplicado **TDD no módulo de autenticação** (AuthValidation/AuthService), garantindo que as regras de negócio fossem validadas por testes automatizados.
+
+### Como rodar os testes
+
+Na pasta raiz do projeto (onde está o arquivo `TcLojaGames.sln`), execute:
+
+```powershell
+dotnet test
