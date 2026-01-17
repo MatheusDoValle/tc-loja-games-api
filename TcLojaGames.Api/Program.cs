@@ -43,7 +43,6 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// ✅ troca AppDbContext -> LojaGamesDbContext
 builder.Services.AddDbContext<LojaGamesDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -52,7 +51,6 @@ builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("Jwt"));
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITokenService, JwtTokenService>();
 
-// ✅ troca namespace do UserRepository (mas a interface é a mesma)
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddScoped<IJogoRepository, JogoRepository>();
