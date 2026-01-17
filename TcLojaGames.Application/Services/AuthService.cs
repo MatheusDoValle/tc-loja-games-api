@@ -25,25 +25,21 @@ public class AuthService : IAuthService
 
     public async Task RegisterAsync(RegisterRequest request, CancellationToken ct)
     {
-        if (request is null) throw new ArgumentNullException(nameof(request));
+        ArgumentNullException.ThrowIfNull(request);
 
-        // Regras do desafio
-        AuthValidation.ValidateEmail(request.Email);
-        AuthValidation.ValidateStrongPassword(request.Password);
-
-        if (string.IsNullOrWhiteSpace(request.Name))
-            throw new ArgumentException("Nome é obrigatório.");
-
+        var name = request.Name.Trim();
         var email = request.Email.Trim().ToLowerInvariant();
+        var password = request.Password;
+        
+        AuthValidation.ValidateStrongPassword(password);
 
         var existing = await _users.GetByEmailAsync(email, ct);
         if (existing is not null)
             throw new ArgumentException("E-mail já cadastrado.");
 
-        var passwordHash = BCrypt.Net.BCrypt.HashPassword(request.Password);
+        var passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
 
-        // por padrão, cadastra como User (Admin você cria via seed depois)
-        var user = new User(request.Name, email, passwordHash, UserRole.User);
+        var user = new User(name, email, passwordHash, UserRole.User);
 
         await _users.AddAsync(user, ct);
 
@@ -52,14 +48,10 @@ public class AuthService : IAuthService
 
     public async Task<AuthResponse> LoginAsync(LoginRequest request, CancellationToken ct)
     {
-        if (request is null) throw new ArgumentNullException(nameof(request));
-
-        AuthValidation.ValidateEmail(request.Email);
-
-        if (string.IsNullOrWhiteSpace(request.Password))
-            throw new ArgumentException("Senha é obrigatória.");
+        ArgumentNullException.ThrowIfNull(request);
 
         var email = request.Email.Trim().ToLowerInvariant();
+        var password = request.Password;
 
         var user = await _users.GetByEmailAsync(email, ct);
         if (user is null)
@@ -68,7 +60,7 @@ public class AuthService : IAuthService
             throw new ArgumentException("Credenciais inválidas.");
         }
 
-        var ok = BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash);
+        var ok = BCrypt.Net.BCrypt.Verify(password, user.PasswordHash);
         if (!ok)
         {
             _logger.LogWarning("Login inválido (senha incorreta). Email={Email}", email);
