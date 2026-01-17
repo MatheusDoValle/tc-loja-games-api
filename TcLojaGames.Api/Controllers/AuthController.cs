@@ -27,8 +27,7 @@ public class AuthController : ControllerBase
         var token = await _auth.LoginAsync(request, ct);
         return Ok(token);
     }
-
-    // ✅ Teste de autenticação (qualquer usuário logado)
+    
     [Authorize]
     [HttpGet("me")]
     public IActionResult Me()
@@ -41,8 +40,7 @@ public class AuthController : ControllerBase
             Role = User.FindFirstValue(ClaimTypes.Role)
         });
     }
-
-    // ✅ Teste de autorização por role (somente Admin)
+    
     [Authorize(Roles = "Admin")]
     [HttpGet("admin-only")]
     public IActionResult AdminOnly()

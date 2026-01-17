@@ -2,20 +2,17 @@ using TcLojaGames.Domain.Enums;
 
 namespace TcLojaGames.Domain.Entities;
 
-public class User
+public class User : EntidadeBase
 {
-    public Guid Id { get; private set; } = Guid.NewGuid();
-
     public string Name { get; private set; } = default!;
     public string Email { get; private set; } = default!;
     public string PasswordHash { get; private set; } = default!;
     public UserRole Role { get; private set; } = UserRole.User;
     public bool IsActive { get; private set; } = true;
-    public DateTime CreatedAtUtc { get; private set; } = DateTime.UtcNow;
 
-    public ICollection<Pedido> Pedidos { get; private set; } = new List<Pedido>();
+    public ICollection<BibliotecaJogo> BibliotecaJogos { get; private set; } = new List<BibliotecaJogo>();
 
-    private User() { } // EF
+    private User() { }
 
     public User(string name, string email, string passwordHash, UserRole role = UserRole.User)
     {

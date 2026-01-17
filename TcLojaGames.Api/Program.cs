@@ -1,13 +1,13 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using TcLojaGames.Api.Auth;
 using Microsoft.OpenApi.Models;
-using TcLojaGames.Infra.Persistence.Repositories;
+using TcLojaGames.Api.Auth;
 using TcLojaGames.Application.Interfaces;
 using TcLojaGames.Application.Services;
-using Microsoft.EntityFrameworkCore;
-using TcLojaGames.Infra.Persistence;
+using TcLojaGames.Infra.Data.Context.Sql.Context;
+using TcLojaGames.Infra.Data.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,14 +43,20 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<LojaGamesDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("Jwt"));
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITokenService, JwtTokenService>();
+
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddScoped<IJogoRepository, JogoRepository>();
+builder.Services.AddScoped<IJogoService, JogoService>();
+builder.Services.AddScoped<IBibliotecaJogoService, BibliotecaJogoService>();
+builder.Services.AddScoped<IBibliotecaJogoRepository, BibliotecaJogoRepository>();
 
 var jwt = builder.Configuration.GetSection("Jwt").Get<JwtOptions>()!;
 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.Secret));
@@ -75,7 +81,6 @@ builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
-// Pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
