@@ -18,7 +18,12 @@
   - [Usuários](#-usuários)
   - [Jogos](#-jogos)
   - [Biblioteca](#-biblioteca)
+<<<<<<< Updated upstream
 - [Documentação](#-documentação)
+=======
+- [Log e Erros](#-log-e-erros) 
+- [Documentação / Apresentação](#-documentação--apresentação)
+>>>>>>> Stashed changes
 - [Alunos](#-alunos)
 
 ---
@@ -60,7 +65,11 @@ Utiliza **Entity Framework Core** para gerenciar os modelos de **Usuários** e *
 <br>
 <br>
 
+<<<<<<< Updated upstream
 ## 🚀 Como testar: Restaurando e compilando o projeto:
+=======
+## 🎯 Como testar: Restaurando e compilando o projeto:
+>>>>>>> Stashed changes
 
 1. dotnet restore
 ```powershell
@@ -92,7 +101,11 @@ dotnet run --project TcLojaGames.Api
 <br>
 <br>
 
+<<<<<<< Updated upstream
 ## Qualidade de Software (Testes Unitários + TDD)
+=======
+## 🚀Qualidade de Software (Testes Unitários + TDD)
+>>>>>>> Stashed changes
 
 Este projeto possui um projeto de testes unitários (**TcLojaGames.Tests**) para validar regras de negócio do módulo de autenticação.
 
@@ -264,8 +277,24 @@ Todos os endpoints, **exceto login e register**, exigem autenticação.
 <br>
 <br>
 
+<<<<<<< Updated upstream
 ## 📚 Documentação
 - [Event Storming - DDD](https://miro.com/welcomeonboard/SSt5Y3VPdzdBS0g3WnM2RmFIUEZIc0JVeWJPUStUQlN3SmcxbE1uM2lOUWNpWGV1MnVaQ3lPTFRySlVYWms3cVIra3pyZUdDYzhyMzdEWjBVMUVnV2dwbGhFMXpFWWVEMkh6cUZLbDEyekNhT1JEdkNKc3VzcXV5aUVCRTNYMWhyVmtkMG5hNDA3dVlncnBvRVB2ZXBnPT0hdjE=?share_link_id=240620216519)
+=======
+## 📁 Log e Erros
+
+O tratamento de log e erro estão disponivel para visualizar no console e arquivo .json ( diários ) localizado **/TcLojaGames.Api/Logs/**, no formato :
+- **info-YYYYMMDD.json** Fluxo normal do sistema / Regra de negócio / inconsistência
+- **error-YYYYMMDD.json** Exceção tratada / erro conhecido / Falha grave / crash
+
+---
+<br>
+<br>
+
+## 📚 Documentação / Apresentação
+- [Event Storming - DDD](https://miro.com/welcomeonboard/SSt5Y3VPdzdBS0g3WnM2RmFIUEZIc0JVeWJPUStUQlN3SmcxbE1uM2lOUWNpWGV1MnVaQ3lPTFRySlVYWms3cVIra3pyZUdDYzhyMzdEWjBVMUVnV2dwbGhFMXpFWWVEMkh6cUZLbDEyekNhT1JEdkNKc3VzcXV5aUVCRTNYMWhyVmtkMG5hNDA3dVlncnBvRVB2ZXBnPT0hdjE=?share_link_id=240620216519)
+- [Video Apresentação](#-tclojagames-api)
+>>>>>>> Stashed changes
 
 ---
 <br>

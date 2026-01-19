@@ -1,15 +1,49 @@
-using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Serilog;
+using Serilog.Events;
+using Serilog.Formatting.Compact;
+using System.Text;
 using TcLojaGames.Api.Auth;
+using TcLojaGames.API.Middlewares;
 using TcLojaGames.Application.Interfaces;
 using TcLojaGames.Application.Services;
 using TcLojaGames.Infra.Data.Context.Sql.Context;
 using TcLojaGames.Infra.Data.Repositories;
 
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+    .MinimumLevel.Override("System", LogEventLevel.Warning)
+    .Enrich.FromLogContext()
+    .Enrich.WithMachineName()
+    .Enrich.WithThreadId()
+    .Enrich.WithEnvironmentName()
+    .Enrich.WithProperty("Application", "TcLojaGames.API")
+    .WriteTo.Console()
+    .WriteTo.Logger(lc => lc
+        .Filter.ByExcluding(e => e.Level >= LogEventLevel.Error)
+        .WriteTo.File(
+            new RenderedCompactJsonFormatter(),
+            "logs/info-.json",
+            rollingInterval: RollingInterval.Day,
+            retainedFileCountLimit: 7
+        ))
+    .WriteTo.Logger(lc => lc
+        .Filter.ByIncludingOnly(e => e.Level >= LogEventLevel.Error)
+        .WriteTo.File(
+            new RenderedCompactJsonFormatter(),
+            "logs/error-.json",
+            rollingInterval: RollingInterval.Day,
+            retainedFileCountLimit: 30
+        ))
+    .CreateLogger();
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -88,6 +122,14 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<CorrelationIdMiddleware>();
+app.UseSerilogRequestLogging(opts =>
+{
+    opts.MessageTemplate =
+        "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms";
+});
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();
