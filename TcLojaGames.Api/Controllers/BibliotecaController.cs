@@ -8,7 +8,7 @@ namespace TcLojaGames.Api.Controllers;
 
 [ApiController]
 [Route("api/biblioteca")]
-[Authorize] 
+[Authorize]
 public class BibliotecaController : ControllerBase
 {
     private readonly IBibliotecaJogoService _service;
@@ -16,8 +16,13 @@ public class BibliotecaController : ControllerBase
     public BibliotecaController(IBibliotecaJogoService service)
         => _service = service;
 
+    /// <summary>
+    /// Retorna a biblioteca de jogos do usuário autenticado.
+    /// </summary>
+    /// <param name="ct">Token para cancelamento da requisição.</param>
     [HttpGet("me")]
-    public async Task<ActionResult<IReadOnlyList<JogoDto>>> MinhaBiblioteca(CancellationToken ct)
+    public async Task<ActionResult<IReadOnlyList<JogoDto>>> MinhaBiblioteca(
+        CancellationToken ct)
     {
         var email =
             User.FindFirstValue(ClaimTypes.Email) ??

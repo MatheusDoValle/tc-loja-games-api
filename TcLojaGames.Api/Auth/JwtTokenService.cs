@@ -23,12 +23,12 @@ public class JwtTokenService : ITokenService
         var claims = new List<Claim>
         {
             new(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-            new(ClaimTypes.NameIdentifier, user.Id.ToString()), // 👈 add
+            new(ClaimTypes.NameIdentifier, user.Id.ToString()), 
 
             new(JwtRegisteredClaimNames.Email, user.Email),
             new("name", user.Name),
 
-            new(ClaimTypes.Role, user.Role.ToString()) // 👈 já está certo
+            new(ClaimTypes.Role, user.Role.ToString()) 
         };
         var expires = DateTime.UtcNow.AddMinutes(_opts.ExpirationMinutes);
 
