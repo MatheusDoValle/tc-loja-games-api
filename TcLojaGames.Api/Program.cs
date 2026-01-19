@@ -1,3 +1,5 @@
+using System.Reflection;
+using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -5,7 +7,6 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Events;
 using Serilog.Formatting.Compact;
-using System.Text;
 using TcLojaGames.Api.Auth;
 using TcLojaGames.API.Middlewares;
 using TcLojaGames.Application.Interfaces;
@@ -47,10 +48,15 @@ builder.Host.UseSerilog();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "TcLojaGames API", Version = "v1" });
-
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "TcLojaGames API",
+        Version = "v1"
+    });
+    
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",
@@ -75,25 +81,21 @@ builder.Services.AddSwaggerGen(c =>
             Array.Empty<string>()
         }
     });
+    
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    c.IncludeXmlComments(xmlPath);
 });
 
 builder.Services.AddDbContext<LojaGamesDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("Jwt"));
-
-builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddScoped<ITokenService, JwtTokenService>();
-
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-
-builder.Services.AddScoped<IJogoRepository, JogoRepository>();
-builder.Services.AddScoped<IJogoService, JogoService>();
-builder.Services.AddScoped<IBibliotecaJogoService, BibliotecaJogoService>();
-builder.Services.AddScoped<IBibliotecaJogoRepository, BibliotecaJogoRepository>();
+builder.Services.Configure<JwtOptions>(
+    builder.Configuration.GetSection("Jwt"));
 
 var jwt = builder.Configuration.GetSection("Jwt").Get<JwtOptions>()!;
-var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.Secret));
+var key = new SymmetricSecurityKey(
+    Encoding.UTF8.GetBytes(jwt.Secret));
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(o =>
@@ -113,6 +115,18 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ITokenService, JwtTokenService>();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddScoped<IJogoRepository, JogoRepository>();
+builder.Services.AddScoped<IJogoService, JogoService>();
+
+builder.Services.AddScoped<IBibliotecaJogoRepository, BibliotecaJogoRepository>();
+builder.Services.AddScoped<IBibliotecaJogoService, BibliotecaJogoService>();
+
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -129,10 +143,12 @@ app.UseSerilogRequestLogging(opts =>
     opts.MessageTemplate =
         "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms";
 });
+
 app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
 app.Run();

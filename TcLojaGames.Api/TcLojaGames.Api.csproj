@@ -4,14 +4,19 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+
+        <!-- ✅ Habilita XML docs para Swagger -->
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <!-- ✅ Evita warning 1591 por falta de comment em tudo -->
+        <NoWarn>$(NoWarn);1591</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.22" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.22" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.18">
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-          <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
         <PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.1" />
@@ -23,12 +28,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\TcLojaGames.Application\TcLojaGames.Application.csproj" />
-      <ProjectReference Include="..\TcLojaGames.Infra\TcLojaGames.Infra.csproj" />
+        <ProjectReference Include="..\TcLojaGames.Application\TcLojaGames.Application.csproj" />
+        <ProjectReference Include="..\TcLojaGames.Infra\TcLojaGames.Infra.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="logs\" />
+        <Folder Include="logs\" />
     </ItemGroup>
 
 </Project>
