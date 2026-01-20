@@ -277,7 +277,7 @@ O tratamento de log e erro estão disponivel para visualizar no console e arquiv
 
 ## 📚 Documentação / Apresentação
 - [Event Storming - DDD](https://miro.com/welcomeonboard/SSt5Y3VPdzdBS0g3WnM2RmFIUEZIc0JVeWJPUStUQlN3SmcxbE1uM2lOUWNpWGV1MnVaQ3lPTFRySlVYWms3cVIra3pyZUdDYzhyMzdEWjBVMUVnV2dwbGhFMXpFWWVEMkh6cUZLbDEyekNhT1JEdkNKc3VzcXV5aUVCRTNYMWhyVmtkMG5hNDA3dVlncnBvRVB2ZXBnPT0hdjE=?share_link_id=240620216519)
-- [Video Apresentação](#-tclojagames-api)
+- Video Arquivo "Apresentação.mp4" - Drive [clique aqui para acessar](https://drive.google.com/drive/folders/1BSq0DQOJ7N5OYw3g8WZdnamw1fzNHKWR?usp=sharing)
 
 ---
 <br>
